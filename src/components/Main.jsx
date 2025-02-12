@@ -25,7 +25,7 @@ export default function Main() {
       <h2>Lista Film</h2>
       <ul>
         {movies.map((movie) => (
-          <li key={`movie-${movie.id}`}>
+          <li key={movie.id}>
             <div>Titolo: {movie.title}</div>
             <div>Titolo Originale: {movie.original_title}</div>
             <div>Lingua: {getFlag(movie.original_language)}</div>
@@ -36,7 +36,7 @@ export default function Main() {
       <h2>Lista Serie Tv</h2>
       <ul>
         {tvSeries.map((serie) => (
-          <li key={`tv-${serie.id}`}>
+          <li key={serie.id}>
             <div>Titolo: {serie.name}</div>
             <div>Titolo Originale: {serie.original_name}</div>
             <div>Lingua: {getFlag(serie.original_language)}</div>
