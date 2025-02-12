@@ -8,9 +8,12 @@ const AppDataContext = createContext();
 function AppDataProvider({ children }) {
   // aggiungo lo stato movies da condividere
   const [movies, setMovies] = useState([]);
+  const [tvSeries, setTvSeries] = useState([]);
 
   return (
-    <AppDataContext.Provider value={{ movies, setMovies }}>
+    <AppDataContext.Provider
+      value={{ movies, setMovies, tvSeries, setTvSeries }}
+    >
       {children}
     </AppDataContext.Provider>
   );

@@ -5,7 +5,7 @@ import axios from "axios";
 export default function SearchBar() {
   const [search, setSearch] = useState("");
 
-  const { setMovies } = useAppDataContext();
+  const { setMovies, setTvSeries } = useAppDataContext();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -18,7 +18,23 @@ export default function SearchBar() {
           query: search,
         },
       })
-      .then((res) => setMovies(res.data.results));
+      .then((res) => {
+        setMovies(res.data.results);
+      })
+      .catch((err) => console.error("Errore film:", err));
+
+    axios
+      .get("https://api.themoviedb.org/3/search/tv", {
+        params: {
+          api_key: "def7efef2b820aa33e9b02a6abc5df86",
+          language: "it-IT",
+          query: search,
+        },
+      })
+      .then((res) => {
+        setTvSeries(res.data.results);
+      })
+      .catch((err) => console.error("Errore serie TV:", err));
   };
   return (
     <form onSubmit={handleSearch}>
