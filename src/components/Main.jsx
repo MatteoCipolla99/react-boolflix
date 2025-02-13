@@ -1,4 +1,5 @@
 import { useAppDataContext } from "../contexts/AppDataContext";
+import StarRating from "./StarRating";
 
 export default function Main() {
   const { movies, tvSeries } = useAppDataContext();
@@ -20,16 +21,24 @@ export default function Main() {
     return lang;
   }
 
+  const imageBaseUrl = "https://image.tmdb.org/t/p/w342";
+
   return (
     <main>
       <h2>Lista Film</h2>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
+            <img
+              src={`${imageBaseUrl}${movie.poster_path}`}
+              alt={`Copertina di ${movie.title}`}
+            />
             <div>Titolo: {movie.title}</div>
             <div>Titolo Originale: {movie.original_title}</div>
             <div>Lingua: {getFlag(movie.original_language)}</div>
-            <div>Voto: {movie.vote_average}</div>
+            <div>
+              Voto: <StarRating vote={movie.vote_average} />
+            </div>
           </li>
         ))}
       </ul>
@@ -37,10 +46,16 @@ export default function Main() {
       <ul>
         {tvSeries.map((serie) => (
           <li key={serie.id}>
+            <img
+              src={`${imageBaseUrl}${serie.poster_path}`}
+              alt={`Copertina di ${serie.name}`}
+            />
             <div>Titolo: {serie.name}</div>
             <div>Titolo Originale: {serie.original_name}</div>
             <div>Lingua: {getFlag(serie.original_language)}</div>
-            <div>Voto: {serie.vote_average}</div>
+            <div>
+              Voto: <StarRating vote={serie.vote_average} />
+            </div>
           </li>
         ))}
       </ul>
