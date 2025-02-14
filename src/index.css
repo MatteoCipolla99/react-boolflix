@@ -40,3 +40,83 @@ header h1 {
   height: 40px;
   width: auto;
 }
+
+main {
+  padding-top: 80px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+li {
+  position: relative;
+  width: 342px;
+  cursor: pointer;
+}
+
+li img {
+  width: 100%;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+li:hover img {
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.card-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+li:hover .card-info {
+  opacity: 1;
+}
+
+.card-info div {
+  margin: 5px 0;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+.search-input {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f40612;
+}

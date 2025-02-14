@@ -30,7 +30,7 @@ export default function Main() {
 
   return (
     <main>
-      {/* <h2>Lista Film</h2> */}
+      <h2>Lista Film</h2>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
@@ -50,7 +50,7 @@ export default function Main() {
           </li>
         ))}
       </ul>
-      {/* <h2>Lista Serie Tv</h2> */}
+      <h2>Lista Serie Tv</h2>
       <ul>
         {tvSeries.map((serie) => (
           <li key={serie.id}>
